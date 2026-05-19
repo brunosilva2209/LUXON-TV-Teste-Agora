@@ -1,0 +1,1116 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>LUXON TV | Teste Grátis Agora</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --gold: #c8920a;
+    --gold-light: #f9bd3d;
+    --gold-dim: rgba(200,146,10,0.15);
+    --bg: #0d0d0d;
+    --surface: #161616;
+    --surface2: #1e1e1e;
+    --border: rgba(200,146,10,0.2);
+    --text: #e8e8e8;
+    --muted: #888;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Montserrat', sans-serif;
+    scroll-behavior: smooth;
+  }
+
+  .playfair { font-family: 'Playfair Display', serif; }
+
+  /* ─── HEADER ─── */
+  header {
+    position: fixed; top: 0; width: 100%; z-index: 100;
+    background: rgba(13,13,13,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+  .header-inner {
+    max-width: 1200px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 16px 32px;
+  }
+  .logo { font-family:'Playfair Display',serif; font-size:22px; font-weight:900; color:var(--gold-light); letter-spacing:-0.5px; }
+  .btn-header {
+    background: var(--gold); color:#000; font-weight:700; font-size:11px;
+    letter-spacing:2px; text-transform:uppercase; padding:12px 24px;
+    border-radius:999px; border:none; cursor:pointer;
+    transition: all 0.2s;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .btn-header:hover { background:#e0a515; transform:scale(1.03); }
+
+  /* ─── HERO ─── */
+  .hero {
+    min-height: 100vh;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    text-align: center;
+    padding: 120px 24px 80px;
+    position: relative; overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute; inset: 0; z-index: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 40%, rgba(200,146,10,0.08) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 40% at 20% 80%, rgba(200,146,10,0.04) 0%, transparent 60%);
+  }
+  .hero-grid {
+    position: absolute; inset: 0; z-index: 0; opacity: 0.04;
+    background-image: linear-gradient(var(--gold) 1px, transparent 1px),
+                      linear-gradient(90deg, var(--gold) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+  .hero-content { position: relative; z-index: 1; max-width: 820px; }
+
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size:11px; letter-spacing:4px; font-weight:700; text-transform:uppercase;
+    color: var(--gold-light);
+    background: var(--gold-dim);
+    border: 1px solid var(--border);
+    padding: 8px 20px; border-radius: 999px;
+    margin-bottom: 28px;
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(40px, 7vw, 76px);
+    font-weight: 900;
+    line-height: 1.0;
+    color: #fff;
+    margin-bottom: 24px;
+  }
+  .hero h1 .gold { color: var(--gold-light); }
+
+  .hero-sub {
+    font-size: 17px; line-height: 1.7; color: #aaa;
+    max-width: 580px; margin: 0 auto 16px;
+  }
+
+  .hero-pain {
+    font-size: 14px; color: #666;
+    margin-bottom: 44px;
+    font-style: italic;
+  }
+  .hero-pain span { color: #aaa; text-decoration: line-through; }
+
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--gold); color: #000;
+    font-weight: 800; font-size: 13px; letter-spacing: 2px; text-transform: uppercase;
+    padding: 20px 44px; border-radius: 999px; border: none; cursor: pointer;
+    transition: all 0.25s;
+    box-shadow: 0 0 40px rgba(200,146,10,0.3), 0 8px 32px rgba(0,0,0,0.4);
+  }
+  .btn-primary:hover { background: #e0a515; transform: translateY(-2px); box-shadow: 0 0 60px rgba(200,146,10,0.45), 0 12px 40px rgba(0,0,0,0.5); }
+  .btn-primary:active { transform: scale(0.97); }
+
+  .hero-note {
+    font-size: 12px; color: #555; margin-top: 16px; letter-spacing: 0.5px;
+  }
+  .hero-note strong { color: #888; }
+
+  /* trust badges */
+  .trust-badges {
+    display: flex; justify-content: center; align-items: center; gap: 24px;
+    margin-top: 32px; flex-wrap: wrap;
+  }
+  .trust-badge {
+    display: flex; align-items: center; gap: 7px;
+    font-size: 11px; font-weight: 600; color: #555; letter-spacing: 0.5px;
+  }
+  .trust-badge svg { color: #3d9e3d; flex-shrink: 0; }
+
+  .hero-stats {
+    display: flex; justify-content: center; gap: 40px;
+    margin-top: 64px; padding-top: 48px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    flex-wrap: wrap;
+  }
+  .stat { text-align: center; }
+  .stat-num {
+    font-family:'Playfair Display',serif; font-size:36px; font-weight:900;
+    color: var(--gold-light); line-height:1;
+  }
+  .stat-label { font-size:11px; letter-spacing:2px; color:#555; text-transform:uppercase; margin-top:6px; }
+
+  /* ─── SECTION SHARED ─── */
+  section { padding: 100px 24px; }
+  .section-inner { max-width: 1100px; margin: 0 auto; }
+
+  .section-tag {
+    font-size:11px; letter-spacing:4px; color:var(--gold); text-transform:uppercase;
+    font-weight:700; margin-bottom:16px; display:block;
+  }
+  .section-title {
+    font-family:'Playfair Display',serif; font-size:clamp(32px,5vw,52px);
+    font-weight:900; color:#fff; line-height:1.05;
+    margin-bottom: 20px;
+  }
+  .section-sub { font-size:15px; color:#777; line-height:1.8; max-width:540px; }
+
+  /* ─── PROBLEMA ─── */
+  .problema { background: var(--surface); border-top: 1px solid rgba(255,255,255,0.04); border-bottom: 1px solid rgba(255,255,255,0.04); }
+  .problema-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 56px; }
+  .pain-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 16px; padding: 28px;
+    display: flex; gap: 16px; align-items: flex-start;
+  }
+  .pain-icon { flex-shrink: 0; margin-top: 2px; color: #c0392b; }
+  .pain-title { font-size:14px; font-weight:700; color:#ccc; margin-bottom:6px; }
+  .pain-desc { font-size:13px; color:#666; line-height:1.7; }
+
+  /* ─── COMO FUNCIONA ─── */
+  .steps { background: var(--bg); }
+  .steps-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 32px; margin-top: 64px; }
+  .step-card {
+    position: relative; text-align: center;
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 20px; padding: 40px 28px;
+    transition: border-color 0.3s;
+  }
+  .step-card:hover { border-color: var(--gold); }
+  .step-num {
+    font-family:'Playfair Display',serif;
+    font-size: 60px; font-weight: 900;
+    line-height:1; margin-bottom:16px;
+    background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  }
+  .step-title { font-size:16px; font-weight:700; color:#fff; margin-bottom:12px; }
+  .step-desc { font-size:13px; color:#666; line-height:1.8; }
+
+  /* ─── O QUE VOCÊ RECEBE ─── */
+  .features { background: var(--surface); }
+  .features-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; margin-top: 56px; }
+  .feat-card {
+    background: var(--bg); border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 20px; padding: 36px 28px;
+    transition: all 0.3s;
+  }
+  .feat-card:hover { border-color: var(--border); transform: translateY(-4px); }
+  .feat-icon { margin-bottom:20px; color: var(--gold-light); }
+  .feat-title { font-size:16px; font-weight:700; color:#fff; margin-bottom:10px; }
+  .feat-desc { font-size:13px; color:#666; line-height:1.8; }
+
+  /* ─── VALUE STACK ─── */
+  .value-stack { background: var(--bg); }
+  .stack-table {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 24px; overflow: hidden; margin-top: 56px;
+  }
+  .stack-row {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 20px 32px;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    transition: background 0.2s;
+  }
+  .stack-row:hover { background: rgba(255,255,255,0.02); }
+  .stack-row:last-child { border-bottom: none; }
+  .stack-item { font-size:14px; color:#ccc; font-weight:600; display: flex; align-items: center; gap: 10px; }
+  .stack-item svg { color: var(--gold); flex-shrink: 0; }
+  .stack-value { font-size:14px; color:#555; font-weight:500; }
+  .stack-value.gold { color: var(--gold-light); font-weight:700; font-size:15px; }
+  .stack-total {
+    background: var(--gold-dim);
+    border-top: 1px solid var(--border);
+  }
+
+  /* ─── DEPOIMENTOS ─── */
+  .testimonials { background: var(--surface); }
+  .test-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; margin-top: 56px; }
+  .test-card {
+    background: var(--bg); border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 20px; padding: 32px;
+    transition: border-color 0.3s;
+  }
+  .test-card:hover { border-color: var(--border); }
+  .stars { color: var(--gold); font-size:16px; margin-bottom:16px; letter-spacing:2px; display: flex; align-items: center; gap: 2px; }
+  .test-quote { font-size:14px; color:#bbb; line-height:1.8; font-style:italic; margin-bottom:24px; }
+  .test-author { display:flex; align-items:center; gap:12px; }
+  .test-avatar {
+    width:42px; height:42px; border-radius:999px;
+    background: linear-gradient(135deg, var(--gold) 0%, #7b5800 100%);
+    display:flex; align-items:center; justify-content:center;
+    font-weight:800; color:#000; font-size:16px; flex-shrink:0;
+  }
+  .test-name { font-size:13px; font-weight:700; color:#ddd; }
+  .test-role { font-size:11px; color:#555; letter-spacing:1px; text-transform:uppercase; margin-top:2px; }
+
+  /* verified badge */
+  .verified-badge {
+    display: inline-flex; align-items: center; gap: 4px;
+    font-size: 10px; color: #3d9e3d; font-weight: 700; letter-spacing: 1px;
+    background: rgba(61,158,61,0.1); padding: 3px 8px; border-radius: 999px;
+    margin-top: 4px;
+  }
+
+  /* ─── PRICING ─── */
+  .pricing { background: var(--bg); }
+  .pricing-intro {
+    text-align:center; max-width: 620px; margin: 0 auto 64px;
+  }
+  .pricing-grid { display:grid; grid-template-columns: repeat(4,1fr); gap: 20px; align-items: end; }
+  .price-card {
+    background: var(--surface); border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 20px; padding: 36px 24px; text-align:center;
+    transition: all 0.3s;
+  }
+  .price-card:hover { border-color: var(--border); }
+  .price-card.featured {
+    border: 2px solid var(--gold);
+    background: linear-gradient(180deg, rgba(200,146,10,0.06) 0%, var(--surface) 100%);
+    transform: translateY(-12px);
+    box-shadow: 0 24px 60px rgba(200,146,10,0.12);
+  }
+  .badge {
+    display:inline-flex; align-items: center; gap: 6px;
+    background: var(--gold); color:#000;
+    font-size:10px; font-weight:800; letter-spacing:2px; text-transform:uppercase;
+    padding:5px 14px; border-radius:999px; margin-bottom:24px;
+  }
+  .price-label { font-size:11px; letter-spacing:3px; color:#555; text-transform:uppercase; margin-bottom:20px; }
+  .price-amount {
+    font-family:'Playfair Display',serif; font-size:52px; font-weight:900;
+    color:#fff; line-height:1;
+  }
+  .price-amount .currency { font-size:20px; color:var(--gold); vertical-align:super; font-family:'Montserrat',sans-serif; font-weight:700; }
+  .price-period { font-size:13px; color:#555; margin-top:6px; margin-bottom:28px; }
+  .price-economy { font-size:12px; color:#3d9e3d; font-weight:700; margin-bottom:24px; background: rgba(61,158,61,0.1); padding:6px 12px; border-radius:999px; display:inline-block; }
+  .price-features { list-style:none; text-align:left; margin-bottom:32px; }
+  .price-features li {
+    font-size:13px; color:#888; padding: 8px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    display:flex; gap:10px; align-items:center;
+  }
+  .price-features li .check { color: var(--gold-light); flex-shrink:0; }
+  .btn-plan {
+    display:flex; width:100%; align-items: center; justify-content: center; gap: 8px;
+    border: 1.5px solid var(--gold); color: var(--gold-light);
+    background: transparent;
+    font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase;
+    padding:14px; border-radius:999px; cursor:pointer;
+    transition: all 0.2s;
+  }
+  .btn-plan:hover { background: var(--gold); color:#000; }
+  .btn-plan.primary-plan {
+    background: var(--gold); color:#000;
+    box-shadow: 0 4px 20px rgba(200,146,10,0.3);
+  }
+  .btn-plan.primary-plan:hover { background: #e0a515; }
+
+  /* ─── FREE CTA ─── */
+  .free-cta { background: var(--surface); }
+  .free-cta-inner {
+    background: linear-gradient(135deg, rgba(200,146,10,0.1) 0%, rgba(200,146,10,0.03) 100%);
+    border: 1px solid var(--border);
+    border-radius: 28px; padding: 80px 48px;
+    text-align: center; position: relative; overflow: hidden;
+  }
+  .free-cta-glow {
+    position: absolute; top: 0; left: 50%; transform:translateX(-50%);
+    width: 600px; height: 300px;
+    background: radial-gradient(ellipse, rgba(200,146,10,0.15) 0%, transparent 70%);
+    pointer-events:none;
+  }
+  .free-cta-content { position:relative; z-index:1; }
+  .free-tag {
+    display:inline-flex; align-items:center; gap:8px;
+    background: rgba(61,158,61,0.15); border: 1px solid rgba(61,158,61,0.3);
+    color: #4cba4c; font-size:12px; font-weight:700; letter-spacing:2px;
+    text-transform:uppercase; padding:8px 20px; border-radius:999px;
+    margin-bottom:28px;
+  }
+  .free-cta h2 {
+    font-family:'Playfair Display',serif; font-size:clamp(32px,5vw,56px);
+    font-weight:900; color:#fff; margin-bottom:20px; line-height:1.05;
+  }
+  .free-cta h2 .gold { color: var(--gold-light); }
+  .free-cta-sub { font-size:16px; color:#888; line-height:1.7; max-width:500px; margin: 0 auto 40px; }
+
+  .free-checklist {
+    display: flex; justify-content: center; gap: 32px; flex-wrap: wrap;
+    margin-bottom: 44px;
+  }
+  .free-check {
+    display:flex; align-items:center; gap:8px;
+    font-size:13px; color:#aaa; font-weight:600;
+  }
+  .free-check .dot { color:#4cba4c; }
+
+  .btn-giant {
+    display: inline-flex; align-items: center; gap: 12px;
+    background: var(--gold); color: #000;
+    font-size: 14px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase;
+    padding: 24px 60px; border-radius: 999px; border: none; cursor: pointer;
+    box-shadow: 0 0 60px rgba(200,146,10,0.4), 0 12px 40px rgba(0,0,0,0.5);
+    transition: all 0.25s;
+    animation: pulse-gold 2.5s ease-in-out infinite;
+  }
+  .btn-giant:hover { background: #e0a515; transform: translateY(-3px); box-shadow: 0 0 80px rgba(200,146,10,0.5), 0 16px 48px rgba(0,0,0,0.6); }
+  .btn-giant:active { transform: scale(0.97); }
+
+  @keyframes pulse-gold {
+    0%, 100% { box-shadow: 0 0 40px rgba(200,146,10,0.3), 0 8px 32px rgba(0,0,0,0.4); }
+    50% { box-shadow: 0 0 80px rgba(200,146,10,0.55), 0 8px 32px rgba(0,0,0,0.4); }
+  }
+
+  .free-note { font-size:12px; color:#555; margin-top:20px; }
+
+  /* WhatsApp CTA note */
+  .whatsapp-note {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 12px; color: #4cba4c; font-weight: 600;
+    margin-top: 12px;
+  }
+
+  /* ─── GARANTIA ─── */
+  .garantia {
+    background: var(--bg); text-align:center; padding: 80px 24px;
+  }
+  .garantia-box {
+    display:inline-flex; align-items:center; gap:24px;
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 20px; padding: 36px 48px; max-width:700px;
+  }
+  .garantia-icon { flex-shrink:0; color: var(--gold-light); }
+  .garantia-title { font-size:18px; font-weight:800; color:#fff; margin-bottom:8px; }
+  .garantia-text { font-size:13px; color:#777; line-height:1.8; }
+
+  /* ─── FAQ ─── */
+  .faq { background: var(--surface); }
+  .faq-grid { display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-top:56px; }
+  .faq-item {
+    background: var(--bg); border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 16px; padding: 28px;
+  }
+  .faq-q { font-size:14px; font-weight:700; color:#ddd; margin-bottom:12px; display: flex; align-items: center; gap: 10px; }
+  .faq-q svg { color: var(--gold); flex-shrink: 0; }
+  .faq-a { font-size:13px; color:#666; line-height:1.8; }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--bg); border-top: 1px solid rgba(255,255,255,0.05);
+    padding: 48px 32px;
+    text-align:center;
+  }
+  .footer-logo { font-family:'Playfair Display',serif; font-size:24px; font-weight:900; color:var(--gold-light); margin-bottom:16px; }
+  .footer-links { display:flex; justify-content:center; gap:32px; flex-wrap:wrap; margin-bottom:24px; }
+  .footer-links a { font-size:12px; color:#555; text-decoration:none; letter-spacing:1px; transition:color 0.2s; }
+  .footer-links a:hover { color:var(--gold); }
+  .footer-copy { font-size:12px; color:#444; }
+
+  /* ─── COUNTDOWN TICKER ─── */
+  .urgent-bar {
+    background: #1a0d00;
+    border-bottom: 1px solid rgba(200,146,10,0.4);
+    color: var(--gold-light);
+    text-align:center; padding: 12px 16px;
+    font-size:12px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase;
+    display: flex; align-items: center; justify-content: center; gap: 12px; flex-wrap: wrap;
+  }
+  .urgent-dot { width: 8px; height: 8px; border-radius: 50%; background: #e74c3c; display: inline-block; animation: blink 1s ease-in-out infinite; }
+  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
+  #countdown {
+    font-size:15px; font-weight:900; color: #fff;
+    background: rgba(200,146,10,0.2); padding: 3px 12px; border-radius: 6px;
+    border: 1px solid rgba(200,146,10,0.4);
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* ─── SCROLL ANIMATE ─── */
+  .reveal { opacity:0; transform:translateY(30px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .reveal.visible { opacity:1; transform:translateY(0); }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 768px) {
+    .header-inner { padding: 14px 20px; }
+    .problema-grid, .features-grid, .pricing-grid, .test-grid, .faq-grid { grid-template-columns:1fr; }
+    .steps-grid { grid-template-columns:1fr; }
+    .price-card.featured { transform: none; }
+    .free-cta-inner { padding: 48px 24px; }
+    .garantia-box { flex-direction:column; text-align:center; padding:32px 24px; }
+    .hero-stats { gap:24px; }
+    section { padding: 72px 20px; }
+    .stack-row { flex-direction:column; align-items:flex-start; gap:6px; }
+    .urgent-bar { gap: 8px; font-size: 11px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- URGENCY BAR -->
+<div class="urgent-bar">
+  <span class="urgent-dot"></span>
+  AO VIVO — Oferta do teste grátis expira em
+  <span id="countdown">09:47</span>
+  — Restam <strong id="spots">23</strong> vagas hoje
+</div>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <div class="logo">LUXON TV</div>
+    <button class="btn-header" onclick="document.getElementById('cta').scrollIntoView({behavior:'smooth'})">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+      Testar Grátis Agora
+    </button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <span class="eyebrow">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+      Streaming que realmente funciona
+    </span>
+    <h1>
+      Chega de Sinal Caindo<br/>
+      na <span class="gold">Hora do Jogo.</span>
+    </h1>
+    <p class="hero-sub">
+      Acesse filmes, séries, esportes ao vivo e canais premium em 4K real — sem travar, sem lag, sem desculpa.
+    </p>
+    <p class="hero-pain">
+      Sem fidelidade. Sem taxa de instalação. <span>Sem burocracia.</span>
+    </p>
+    <button class="btn-primary" onclick="document.getElementById('cta').scrollIntoView({behavior:'smooth'})">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+      Quero Meu Teste Grátis
+    </button>
+    <div class="trust-badges">
+      <div class="trust-badge">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+        Sem cartão de crédito
+      </div>
+      <div class="trust-badge">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+        Ativação em 5 minutos
+      </div>
+      <div class="trust-badge">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+        Cancela quando quiser
+      </div>
+    </div>
+
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="stat-num">50K+</div>
+        <div class="stat-label">Membros Ativos</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">4K</div>
+        <div class="stat-label">Ultra HD Real</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">99,9%</div>
+        <div class="stat-label">Uptime Garantido</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">24h</div>
+        <div class="stat-label">Suporte Humano</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEMA -->
+<section class="problema">
+  <div class="section-inner reveal">
+    <span class="section-tag">O Problema</span>
+    <h2 class="section-title">Você já passou por isso...</h2>
+    <p class="section-sub">A maioria dos serviços de IPTV promete tudo e entrega frustração. Te reconhece?</p>
+
+    <div class="problema-grid" style="margin-top:48px;">
+      <div class="pain-card">
+        <div class="pain-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 6s4-2 11-2 11 2 11 2"/><path d="M1 10s4-2 11-2 11 2 11 2"/><line x1="1" y1="14" x2="5" y2="14"/><line x1="19" y1="14" x2="23" y2="14"/><line x1="8" y1="14" x2="16" y2="14"/><line x1="12" y1="14" x2="12" y2="20"/><path d="M8 20h8"/><line x1="2" y1="2" x2="22" y2="22" stroke="#c0392b" stroke-width="2"/></svg>
+        </div>
+        <div>
+          <div class="pain-title">Sinal caindo na hora H</div>
+          <div class="pain-desc">Clássico do jogo decisivo — o streaming trava exatamente no gol ou na última luta do card.</div>
+        </div>
+      </div>
+      <div class="pain-card">
+        <div class="pain-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#c0392b" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/><path d="M7 8l3 3-3 3M14 11h3"/></svg>
+        </div>
+        <div>
+          <div class="pain-title">Promessa de 4K, entrega 720p</div>
+          <div class="pain-desc">Pagou por Ultra HD mas o que aparece na tela não engana ninguém. Pixelado e travando.</div>
+        </div>
+      </div>
+      <div class="pain-card">
+        <div class="pain-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#c0392b" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><line x1="9" y1="9" x2="15" y2="9"/><line x1="9" y1="13" x2="11" y2="13"/></svg>
+        </div>
+        <div>
+          <div class="pain-title">Suporte some após a venda</div>
+          <div class="pain-desc">Problema técnico? Boa sorte. Ninguém responde, ou demoram dias pra resolver algo simples.</div>
+        </div>
+      </div>
+      <div class="pain-card">
+        <div class="pain-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#c0392b" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        </div>
+        <div>
+          <div class="pain-title">Pagou, arrependeu, perdeu</div>
+          <div class="pain-desc">Contratou sem poder testar antes. Só descobriu que era ruim depois de pagar o mês todo.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMO FUNCIONA -->
+<section class="steps">
+  <div class="section-inner reveal">
+    <div style="text-align:center; max-width:600px; margin:0 auto;">
+      <span class="section-tag">Como Funciona</span>
+      <h2 class="section-title">3 passos para assistir do jeito certo</h2>
+      <p class="section-sub" style="margin:0 auto;">Simples assim. Sem técnico em casa, sem cabo, sem complicação.</p>
+    </div>
+
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-num">01</div>
+        <div class="step-title">Ative seu Teste Grátis</div>
+        <div class="step-desc">Clique no botão, informe apenas seu nome e WhatsApp. Sem cartão. Sem compromisso.</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">02</div>
+        <div class="step-title">Receba o Acesso em Minutos</div>
+        <div class="step-desc">Nossa equipe ativa sua conta em até 5 minutos e te manda o link de instalação direto no WhatsApp.</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">03</div>
+        <div class="step-title">Assista em Qualquer Tela</div>
+        <div class="step-desc">TV, celular, tablet, PC. O mesmo acesso funciona em todos os seus dispositivos simultaneamente.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- O QUE VOCÊ RECEBE -->
+<section class="features">
+  <div class="section-inner reveal">
+    <span class="section-tag">O que você recebe</span>
+    <h2 class="section-title">Tudo no mesmo lugar,<br/>sem nenhum extra escondido</h2>
+
+    <div class="features-grid" style="margin-top:56px;">
+      <div class="feat-card">
+        <div class="feat-icon">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="2.18"/><path d="m7 2 5 20M17 2l-5 20M2 12h20M2 7h5M2 17h5M17 7h5M17 17h5"/></svg>
+        </div>
+        <div class="feat-title">Filmes em 4K Ultra HD Real</div>
+        <div class="feat-desc">Últimos lançamentos do cinema e clássicos atemporais. Catálogo atualizado diariamente com o melhor do mundo.</div>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+        </div>
+        <div class="feat-title">Séries Atualizadas Semanalmente</div>
+        <div class="feat-desc">De drama a suspense, comédia a ação. Todos os episódios disponíveis assim que lançam, sem fila de espera.</div>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
+        </div>
+        <div class="feat-title">Esportes Ao Vivo em 4K</div>
+        <div class="feat-desc">Futebol, UFC, F1, NBA e muito mais. Transmissão estável mesmo nos momentos mais críticos do jogo.</div>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg>
+        </div>
+        <div class="feat-title">+200 Canais ao Vivo</div>
+        <div class="feat-desc">Canais abertos, fechados, notícias e entretenimento 24h. Tudo sem antena ou cabo.</div>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+        </div>
+        <div class="feat-title">Qualquer Dispositivo</div>
+        <div class="feat-desc">Smart TV, Android, iOS, PC, FireStick, Chromecast. Um acesso, todas as telas da sua casa.</div>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">
+          <!-- WhatsApp icon -->
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+        </div>
+        <div class="feat-title">Suporte 24h no WhatsApp</div>
+        <div class="feat-desc">Problema técnico? Nossa equipe responde em menos de 5 minutos, qualquer hora do dia ou da noite.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VALUE STACK -->
+<section class="value-stack">
+  <div class="section-inner reveal">
+    <div style="text-align:center; max-width:600px; margin:0 auto 56px;">
+      <span class="section-tag">Valor Real</span>
+      <h2 class="section-title">O que você leva pelo preço de um café por dia</h2>
+    </div>
+
+    <div class="stack-table">
+      <div class="stack-row">
+        <span class="stack-item">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="2.18"/><path d="m7 2 5 20M17 2l-5 20M2 12h20"/></svg>
+          Catálogo completo de filmes e séries em 4K
+        </span>
+        <span class="stack-value">Valor: R$39,90/mês</span>
+      </div>
+      <div class="stack-row">
+        <span class="stack-item">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
+          Esportes ao vivo — todos os jogos, lutas e corridas
+        </span>
+        <span class="stack-value">Valor: R$49,90/mês</span>
+      </div>
+      <div class="stack-row">
+        <span class="stack-item">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg>
+          +200 canais ao vivo, 24h por dia
+        </span>
+        <span class="stack-value">Valor: R$29,90/mês</span>
+      </div>
+      <div class="stack-row">
+        <span class="stack-item">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/></svg>
+          Acesso em todos os dispositivos simultaneamente
+        </span>
+        <span class="stack-value">Valor: R$19,90/mês</span>
+      </div>
+      <div class="stack-row">
+        <span class="stack-item">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+          Suporte VIP 24h no WhatsApp
+        </span>
+        <span class="stack-value">Valor: R$49,90/mês</span>
+      </div>
+      <div class="stack-row stack-total">
+        <span class="stack-item" style="color:#fff; font-size:16px; font-weight:800;">Valor total se contratasse separado</span>
+        <span class="stack-value" style="color:#555; text-decoration:line-through; font-size:16px;">R$189,50/mês</span>
+      </div>
+      <div class="stack-row" style="background:var(--gold-dim); border-top:2px solid var(--gold);">
+        <span class="stack-item" style="color:#fff; font-size:18px; font-weight:800;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="var(--gold)" stroke="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          LUXON TV — Plano Anual
+        </span>
+        <span class="stack-value gold">Apenas R$23,33/mês</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DEPOIMENTOS -->
+<section class="testimonials">
+  <div class="section-inner reveal">
+    <span class="section-tag">Prova Social</span>
+    <h2 class="section-title">Mais de 50.000 famílias<br/>já assistem melhor</h2>
+
+    <div class="test-grid">
+      <div class="test-card">
+        <div class="stars">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="#c8920a" stroke="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="#c8920a" stroke="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="#c8920a" stroke="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="#c8920a" stroke="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="#c8920a" stroke="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p class="test-quote">"A estabilidade é impressionante. Já testei vários serviços, mas a LUXON é a única que entrega o 4K real sem travar no meio do jogo decisivo. Nunca mais perdi um gol."</p>
+        <div class="test-author">
+          <div class="test-avatar">R</div>
+          <div>
+            <div class="test-name">Ricardo Oliveira</div>
+            <div class="test-role">Membro há 14 meses</div>
+            <div class="verified-badge">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+              Compra verificada
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="test-card">
+        <div class="stars">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="#c8920a" stroke="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="#c8920a" stroke="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="#c8920a" stroke="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="#c8920a" stroke="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="#c8920a" stroke="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p class="test-quote">"Suporte via WhatsApp é impressionante. Tive uma dúvida na instalação e resolveram em menos de 3 minutos. Coisa que outros serviços demoram dias pra fazer."</p>
+        <div class="test-author">
+          <div class="test-avatar">A</div>
+          <div>
+            <div class="test-name">Amanda Costa</div>
+            <div class="test-role">Assinante Anual</div>
+            <div class="verified-badge">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+              Compra verificada
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="test-card">
+        <div class="stars">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="#c8920a" stroke="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="#c8920a" stroke="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="#c8920a" stroke="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="#c8920a" stroke="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="#c8920a" stroke="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p class="test-quote">"Comecei pelo teste grátis sem acreditar muito. Em 2 dias já estava pagando o plano anual. Catálogo gigantesco, imagem perfeita. Nunca mais vou voltar pra TV a cabo."</p>
+        <div class="test-author">
+          <div class="test-avatar">M</div>
+          <div>
+            <div class="test-name">Marcos Silva</div>
+            <div class="test-role">Ex-cético, hoje Membro VIP</div>
+            <div class="verified-badge">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+              Compra verificada
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="test-card">
+        <div class="stars">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="#c8920a" stroke="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="#c8920a" stroke="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="#c8920a" stroke="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="#c8920a" stroke="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="#c8920a" stroke="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p class="test-quote">"Minha família inteira usa agora. TV da sala, tablet dos filhos, celular da minha esposa. Um único acesso pra todo mundo, sem pagar extra. Melhor investimento do ano."</p>
+        <div class="test-author">
+          <div class="test-avatar">F</div>
+          <div>
+            <div class="test-name">Felipe Mendes</div>
+            <div class="test-role">Família de 4 pessoas</div>
+            <div class="verified-badge">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+              Compra verificada
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="test-card">
+        <div class="stars">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="#c8920a" stroke="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="#c8920a" stroke="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="#c8920a" stroke="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="#c8920a" stroke="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="#c8920a" stroke="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p class="test-quote">"Assistia UFC pagando caro por evento. Agora tenho todos os cards ao vivo no plano anual. Economizei mais de R$800 no ano e a qualidade é muito superior."</p>
+        <div class="test-author">
+          <div class="test-avatar">C</div>
+          <div>
+            <div class="test-name">Carlos Braga</div>
+            <div class="test-role">Fã de MMA e UFC</div>
+            <div class="verified-badge">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+              Compra verificada
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="test-card">
+        <div class="stars">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="#c8920a" stroke="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="#c8920a" stroke="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="#c8920a" stroke="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="#c8920a" stroke="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="#c8920a" stroke="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p class="test-quote">"Fiz o teste grátis às 23h de um domingo, instalei sozinha em 5 minutos. Nenhuma outra plataforma chega perto dessa facilidade. Indicaria pra qualquer pessoa."</p>
+        <div class="test-author">
+          <div class="test-avatar">L</div>
+          <div>
+            <div class="test-name">Letícia Ramos</div>
+            <div class="test-role">Assinou após o teste</div>
+            <div class="verified-badge">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+              Compra verificada
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing" id="pricing">
+  <div class="section-inner">
+    <div class="pricing-intro reveal">
+      <span class="section-tag">Planos & Preços</span>
+      <h2 class="section-title">Experimente grátis.<br/>Pague só se amar.</h2>
+      <p class="section-sub" style="margin:0 auto; text-align:center;">Escolha o plano depois do teste. Cancele quando quiser, sem multa.</p>
+    </div>
+
+    <div class="pricing-grid reveal">
+      <!-- Mensal -->
+      <div class="price-card">
+        <div class="price-label">Mensal</div>
+        <div class="price-amount"><span class="currency">R$</span>30</div>
+        <div class="price-period">por mês</div>
+        <ul class="price-features">
+          <li><span class="check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span> Conteúdo 4K Ultra HD</li>
+          <li><span class="check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span> Filmes e Séries</li>
+          <li><span class="check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span> Suporte 24h</li>
+          <li><span class="check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span> Multi-dispositivos</li>
+        </ul>
+        <button class="btn-plan">Assinar Mensal</button>
+      </div>
+
+      <!-- Trimestral -->
+      <div class="price-card">
+        <div class="price-label">Trimestral</div>
+        <div class="price-amount"><span class="currency">R$</span>80</div>
+        <div class="price-period">por 3 meses</div>
+        <div class="price-economy">Economiza R$10</div>
+        <ul class="price-features">
+          <li><span class="check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span> Conteúdo 4K Ultra HD</li>
+          <li><span class="check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span> Filmes, Séries e Esportes</li>
+          <li><span class="check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span> Suporte 24h</li>
+          <li><span class="check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span> Multi-dispositivos</li>
+        </ul>
+        <button class="btn-plan">Assinar Trimestral</button>
+      </div>
+
+      <!-- Semestral -->
+      <div class="price-card">
+        <div class="price-label">Semestral</div>
+        <div class="price-amount"><span class="currency">R$</span>160</div>
+        <div class="price-period">por 6 meses</div>
+        <div class="price-economy">Economiza R$20</div>
+        <ul class="price-features">
+          <li><span class="check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span> Conteúdo 4K Ultra HD</li>
+          <li><span class="check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span> Filmes, Séries e Esportes</li>
+          <li><span class="check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span> Suporte VIP</li>
+          <li><span class="check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span> Multi-dispositivos</li>
+          <li><span class="check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span> +200 Canais ao Vivo</li>
+        </ul>
+        <button class="btn-plan">Assinar Semestral</button>
+      </div>
+
+      <!-- Anual — FEATURED -->
+      <div class="price-card featured">
+        <div class="badge">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          Mais Popular
+        </div>
+        <div class="price-label" style="color:var(--gold);">Anual</div>
+        <div class="price-amount"><span class="currency">R$</span>280</div>
+        <div class="price-period">por 12 meses = <strong style="color:#fff;">R$23,33/mês</strong></div>
+        <div class="price-economy">Economiza R$80 no ano</div>
+        <ul class="price-features">
+          <li><span class="check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span> Conteúdo 4K Ultra HD Real</li>
+          <li><span class="check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span> Filmes, Séries e Esportes</li>
+          <li><span class="check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span> Suporte VIP Prioritário 24h</li>
+          <li><span class="check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span> Multi-dispositivos ilimitado</li>
+          <li><span class="check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span> +200 Canais ao Vivo</li>
+          <li><span class="check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span> Acesso a novidades em primeira mão</li>
+        </ul>
+        <button class="btn-plan primary-plan">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          Assinar Anual — Melhor Custo
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BIG FREE CTA -->
+<section class="free-cta" id="cta">
+  <div class="section-inner">
+    <div class="free-cta-inner reveal">
+      <div class="free-cta-glow"></div>
+      <div class="free-cta-content">
+        <div class="free-tag">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="#4cba4c" stroke="none"><circle cx="12" cy="12" r="10"/></svg>
+          100% Gratuito — Sem Cartão
+        </div>
+        <h2>Teste Agora, <span class="gold">Decida Depois.</span></h2>
+        <p class="free-cta-sub">
+          Ative seu acesso grátis em 5 minutos. Sem cartão, sem compromisso. Experimente tudo antes de pagar qualquer coisa.
+        </p>
+
+        <div class="free-checklist">
+          <div class="free-check">
+            <span class="dot"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+            Sem informar cartão
+          </div>
+          <div class="free-check">
+            <span class="dot"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+            Ativação em 5 minutos
+          </div>
+          <div class="free-check">
+            <span class="dot"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+            Cancela a qualquer hora
+          </div>
+          <div class="free-check">
+            <span class="dot"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+            Suporte incluso
+          </div>
+        </div>
+
+        <button class="btn-giant">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          Ativar Meu Teste Grátis Agora
+        </button>
+        <div class="whatsapp-note">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+          Você receberá o acesso direto no seu WhatsApp
+        </div>
+        <p class="free-note">Já mais de 50.000 pessoas testaram. Você vai entender em 5 minutos por que ficaram.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GARANTIA -->
+<section class="garantia">
+  <div style="max-width:700px; margin:0 auto; text-align:center;" class="reveal">
+    <div class="garantia-box">
+      <div class="garantia-icon">
+        <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10" stroke="#f9bd3d" stroke-width="2"/></svg>
+      </div>
+      <div style="text-align:left;">
+        <div class="garantia-title">Teste sem risco. Garantido.</div>
+        <div class="garantia-text">
+          Ative seu teste grátis agora. Se ao final do período você não ficar 100% satisfeito com a qualidade da imagem, estabilidade e suporte, basta falar conosco — sem questionamentos, sem burocracia. Sua satisfação é nossa única métrica.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <div class="section-inner reveal">
+    <div style="text-align:center; max-width:500px; margin:0 auto 56px;">
+      <span class="section-tag">Dúvidas Frequentes</span>
+      <h2 class="section-title">Antes de ir embora, leia isso</h2>
+    </div>
+
+    <div class="faq-grid">
+      <div class="faq-item">
+        <div class="faq-q">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          O teste é realmente grátis? Preciso de cartão?
+        </div>
+        <div class="faq-a">Sim, 100% grátis. Você só precisa do seu nome e WhatsApp. Não pedimos dados de pagamento para o teste.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          Em quanto tempo recebo o acesso?
+        </div>
+        <div class="faq-a">Nossa equipe ativa em até 5 minutos e manda o link de instalação direto no seu WhatsApp, com passo a passo.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          Funciona em qual dispositivo?
+        </div>
+        <div class="faq-a">Smart TV, Android, iOS, Windows, Mac, Chromecast e FireStick. Um acesso funciona em todos os seus aparelhos.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          A internet do meu provedor atual funciona?
+        </div>
+        <div class="faq-a">Sim! Funciona com qualquer provedor de internet — fibra, cabo ou 4G. Recomendamos no mínimo 10Mbps para 4K.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          Posso cancelar a qualquer momento?
+        </div>
+        <div class="faq-a">Sim. Sem multa, sem fidelidade, sem burocracia. Se decidir cancelar, basta nos chamar no WhatsApp.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          Qual a diferença do plano anual para o mensal?
+        </div>
+        <div class="faq-a">No plano anual você economiza R$80 e ainda ganha acesso ao suporte VIP prioritário, que responde em menos de 3 minutos.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">LUXON TV</div>
+  <div class="footer-links">
+    <a href="#">Termos de Serviço</a>
+    <a href="#">Política de Privacidade</a>
+    <a href="#cta">Suporte</a>
+    <a href="#">Programa de Afiliados</a>
+  </div>
+  <div class="footer-copy">© 2025 LUXON TV. Experiência Cinematográfica Premium. Todos os direitos reservados.</div>
+</footer>
+
+<script>
+  // COUNTDOWN
+  function startCountdown(seconds) {
+    const el = document.getElementById('countdown');
+    setInterval(() => {
+      if (seconds <= 0) { el.textContent = '00:00'; return; }
+      seconds--;
+      const m = String(Math.floor(seconds / 60)).padStart(2, '0');
+      const s = String(seconds % 60).padStart(2, '0');
+      el.textContent = `${m}:${s}`;
+    }, 1000);
+  }
+  startCountdown(587);
+
+  // SPOTS COUNTER (social proof de escassez)
+  let spots = 23;
+  setInterval(() => {
+    if (spots > 7 && Math.random() < 0.15) {
+      spots--;
+      const el = document.getElementById('spots');
+      if (el) el.textContent = spots;
+    }
+  }, 8000);
+
+  // SCROLL REVEAL
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(r => observer.observe(r));
+
+  // BUTTON FEEDBACK
+  document.querySelectorAll('button').forEach(btn => {
+    btn.addEventListener('mousedown', () => btn.style.transform = 'scale(0.97)');
+    btn.addEventListener('mouseup', () => btn.style.transform = '');
+    btn.addEventListener('mouseleave', () => btn.style.transform = '');
+  });
+</script>
+</body>
+</html>
